@@ -82,3 +82,49 @@ function sumNumbers(mixedData: (number | string)[]): number {
 // Example usage
 const mixedData = [1, "two", 3, "four", 5];
 console.log(sumNumbers(mixedData)); // Output: 9
+
+// Problem 5
+
+// Define two interfaces: Car with properties like make, model, and year, and Driver with properties like name and licenseNumber. Create a function that takes two objects of type Car and Driver and returns an object with the combined properties of both types.
+
+interface Car {
+  make: string;
+  model: string;
+  year: number;
+}
+
+interface Driver {
+  name: string;
+  licenseNumber: string;
+}
+
+function combineCarAndDriver(car: Car, driver: Driver): Car & Driver {
+  return {
+    ...car,
+    ...driver,
+  };
+}
+
+// Example usage:
+const myCar: Car = {
+  make: "Toyota",
+  model: "Corolla",
+  year: 2020,
+};
+
+const myDriver: Driver = {
+  name: "John Doe",
+  licenseNumber: "XYZ123456",
+};
+
+const combined = combineCarAndDriver(myCar, myDriver);
+console.log(combined);
+
+// Output:
+// {
+//   make: 'Toyota',
+//   model: 'Corolla',
+//   year: 2020,
+//   name: 'John Doe',
+//   licenseNumber: 'XYZ123456'
+// }
