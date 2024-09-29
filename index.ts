@@ -128,3 +128,22 @@ console.log(combined);
 //   name: 'John Doe',
 //   licenseNumber: 'XYZ123456'
 // }
+
+// Problem 6
+
+// Write a TypeScript function that takes a parameter of type unknown and uses a type guard to check whether the parameter is an array of numbers. If it is, calculate the sum of the numbers and log it. If it's not, log an error message.
+
+function sumArrayIfNumbers(data: unknown): void {
+  // Type guard to check if the data is an array of numbers
+  if (Array.isArray(data) && data.every((item) => typeof item === "number")) {
+    const sum = data.reduce((acc, num) => acc + num, 0);
+    console.log("Sum of numbers:", sum);
+  } else {
+    console.log("Error: Input is not an array of numbers.");
+  }
+}
+
+// Example usage:
+sumArrayIfNumbers([1, 2, 3, 4]); // Output: Sum of numbers: 10
+sumArrayIfNumbers(["a", 2, 3]); // Output: Error: Input is not an array of numbers.
+sumArrayIfNumbers(42); // Output: Error: Input is not an array of numbers.
