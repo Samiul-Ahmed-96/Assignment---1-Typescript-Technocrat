@@ -186,3 +186,34 @@ const indexInStrings = findFirstOccurrence(strings, targetString);
 
 console.log(indexInNumbers); // Output: 1
 console.log(indexInStrings); // Output: 2
+
+// Problem 8
+
+// Create a TypeScript program that simulates a simple shopping cart. Define an interface Product with properties like name, price, and quantity. Implement a function that calculates the total cost of the items in the shopping cart. The function should take an array of Product objects as input and return the total cost.
+
+// Define the Product interface
+interface Product {
+  name: string;
+  price: number;
+  quantity: number;
+}
+
+// Function to calculate the total cost of items in the cart
+function calculateTotalCost(cart: Product[]): number {
+  return cart.reduce(
+    (total, product) => total + product.price * product.quantity,
+    0
+  );
+}
+
+// Example usage
+const shoppingCart: Product[] = [
+  { name: "Apple", price: 1.5, quantity: 4 },
+  { name: "Banana", price: 1.0, quantity: 6 },
+  { name: "Orange", price: 2.0, quantity: 3 },
+];
+
+const totalCost = calculateTotalCost(shoppingCart);
+console.log("Total cost:", totalCost);
+
+// Output: Total cost: 17
