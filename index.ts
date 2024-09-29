@@ -28,3 +28,32 @@ interface Person {
 function getAddressCity(person: Person): string | undefined {
   return person.address?.city;
 }
+
+// Problem 3
+
+// Create a type guard function isCat that checks if an object is an instance of a Cat class. If it does, the function says "yes, it's a cat." If it doesn't match, the function says "no, it's not a cat
+
+class Cat {
+  meow(): void {
+    console.log("Meow!");
+  }
+}
+
+function isCat(obj: any): obj is Cat {
+  return obj instanceof Cat;
+}
+
+function checkIfCat(obj: any): string {
+  if (isCat(obj)) {
+    return "Yes, it's a cat.";
+  } else {
+    return "No, it's not a cat.";
+  }
+}
+
+// Example usage:
+const cat = new Cat();
+const dog = {};
+
+console.log(checkIfCat(cat)); // Output: Yes, it's a cat.
+console.log(checkIfCat(dog)); // Output: No, it's not a cat.
